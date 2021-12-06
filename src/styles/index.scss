@@ -1,0 +1,11 @@
+@import "./variables.scss";
+
+body {
+  height: 100%;
+  margin: 0;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: PingFangSC-Regular, PingFang SC, Microsoft YaHei, "Noto Sans SC",
+    Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Arial, sans-serif !important;
+}

@@ -18,8 +18,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/styles/variables.scss";
-
 .user-container {
   float: right;
   display: inline-flex;

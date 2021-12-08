@@ -4,6 +4,8 @@ import router from "./router";
 
 import "@/styles/index.scss";
 import "@/components";
+// svg 图标
+import "@/assets/svg-icons";
 
 Vue.config.productionTip = false;
 

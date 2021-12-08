@@ -16,24 +16,22 @@
 </template>
 
 <style lang="scss" scoped>
-@import "~@/styles/variables.scss";
-
 .footer-box {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #274e91;
+    background-color: #000;
     text-align: center;
     padding: 15px 0 20px;
-    color: #fff;
+    color: $fontColorLevel5;
     font-size: 13px;
     z-index: 9999;
     .block {
         margin-bottom: 4px;
     }
     .el-link.el-link--default {
-        color: #FFF;
+        color: $fontColorLevel5;
         font-size: 13px;
         vertical-align: text-top;
     }

@@ -1,20 +1,25 @@
 <template>
-  <div class="menu-box">
+  <div class="menu-box" @mouseleave="hoverMenu = null">
     <div class="list">
       <span
         v-for="item in menus"
         :key="item.name"
         class="item"
         @click="handleClickMenu(item)"
+        @mouseenter="hoverMenu = item"
       >
         {{ item.name }}
       </span>
     </div>
+    <menuDropdown class="dropdown" :data="hoverMenu" @close="hoverMenu = null" />
   </div>
 </template>
 
 <script>
 export default {
+  components: {
+    menuDropdown: () => import("./menu-dropdown.vue")
+  },
   data() {
     return {
       menus: [
@@ -23,7 +28,8 @@ export default {
         { name: "监管信息平台", path: "/index3" },
         { name: "行业平台", path: "/index4" },
         { name: "运营中心", path: "/index5" }
-      ]
+      ],
+      hoverMenu: null
     };
   },
   computed: {
@@ -31,7 +37,6 @@ export default {
       const target = this.menus.find((m) =>
         this.$route.path.startsWith(m.path)
       );
-      console.log(target);
       return target ? target.name : "";
     }
   },
@@ -48,19 +53,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/styles/variables.scss";
-
 .menu-box {
   display: inline-flex;
   height: 100%;
   align-items: center;
   color: #000;
-  font-size: 18px;
+  font-size: 16px;
   vertical-align: top;
   margin-left: 24px;
   .list {
-    height: 18px;
-    line-height: 18px;
+    height: 100%;
+    line-height: 80px;
     .item {
       position: relative;
       display: inline-block;
@@ -75,11 +78,19 @@ export default {
         position: absolute;
         width: 90%;
         height: 3px;
-        bottom: -30px;
+        bottom: 0px;
         left: 5%;
         background: $linkHoverColor;
       }
     }
+  }
+  &:hover {
+    .dropdown {
+      display: block;
+    }
+  }
+  .dropdown {
+    display: none;
   }
 }
 </style>

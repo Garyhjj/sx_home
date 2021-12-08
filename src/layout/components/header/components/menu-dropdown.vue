@@ -75,6 +75,7 @@ export default {
   box-sizing: border-box;
   background-color: #aaa;
   transition: all 0.6s ease-in-out;
+  overflow: hidden;
   .el-icon-close {
     position: absolute;
     top: 24px;

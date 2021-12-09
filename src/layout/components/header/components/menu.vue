@@ -84,13 +84,5 @@ export default {
       }
     }
   }
-  &:hover {
-    .dropdown {
-      display: block;
-    }
-  }
-  .dropdown {
-    display: none;
-  }
 }
 </style>

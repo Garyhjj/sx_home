@@ -1,10 +1,11 @@
 <template>
-  <div class="header">
-    <div class="logo-box">
-      山西省煤炭信息监管服务平台
+  <div class="header-contaner">
+    <div class="header-top"></div>
+    <div class="header-bottom">
+      <div class="logo-box">山西省煤炭信息监管服务平台</div>
+      <app-menu />
+      <header-user />
     </div>
-    <app-menu />
-    <header-user />
   </div>
 </template>
 
@@ -15,22 +16,27 @@ export default {
     headerUser: () => import("./components/user.vue")
   }
 };
-
 </script>
 
 <style lang="scss" scoped>
-.header {
+.header-contaner {
   position: fixed;
-  width: 100%;
-  height: 80px;
-  padding: 0 16px;
   left: 0;
   right: 0;
   top: 0;
-  background: #eee;
+  width: 100%;
+  z-index: 99;
+}
+.header-top {
+  height: 40px;
+  background: #333;
+}
+.header-bottom {
+  height: 80px;
+  padding: 0 16px;
+  background: #fff;
   box-sizing: border-box;
   vertical-align: top;
-  z-index: 99;
 
   .logo-box {
     display: inline-flex;

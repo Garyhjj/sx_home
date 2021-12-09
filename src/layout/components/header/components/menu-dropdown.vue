@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-dropdown-container" :style="{ height: data ? 'auto' : 0, borderWidth: data? '1px': '0' }">
+  <div class="menu-dropdown-container" :style="{ height: data ? '240px' : 0, borderWidth: data? '1px': '0' }">
     <i class="el-icon-close" @click="$emit('close')" />
     <div class="content">
       <div class="left">
@@ -73,8 +73,8 @@ export default {
   padding: 0 32px;
   border-top: 1px solid $primaryColor;
   box-sizing: border-box;
-  background-color: #aaa;
-  transition: all 0.6s ease-in-out;
+  background-color: #fff;
+  transition: height 0.4s ease-in-out;
   overflow: hidden;
   .el-icon-close {
     position: absolute;

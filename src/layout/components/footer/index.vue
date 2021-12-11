@@ -21,25 +21,27 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #000;
+    background-color: #274E91;
     text-align: center;
+    height: 73px;
     padding: 15px 0 20px;
-    color: $fontColorLevel5;
+    color: #fff;
     font-size: 13px;
+    box-sizing: border-box;
     z-index: 9999;
     .block {
         margin-bottom: 4px;
     }
     .el-link.el-link--default {
-        color: $fontColorLevel5;
+        color: #fff;
         font-size: 13px;
-        vertical-align: text-top;
+        vertical-align: baseline;
     }
     .line {
         display: inline-block;
         height: 10px;
         width: 1px;
-        background-color: $fontColorLevel5;
+        background-color: #fff;
         margin: 0 8px;
     }
     .copyright-info {

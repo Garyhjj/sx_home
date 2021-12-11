@@ -11,24 +11,20 @@
         {{ item.name }}
       </span>
     </div>
-    <menuDropdown class="dropdown" :data="hoverMenu" @close="hoverMenu = null" />
+    <menuDropdown class="dropdown" :data="hoverMenu && hoverMenu.children" :height="hoverMenu && hoverMenu.dropdownHeight"  @close="hoverMenu = null" />
   </div>
 </template>
 
 <script>
+import { menuList } from "@/config";
+
 export default {
   components: {
     menuDropdown: () => import("./menu-dropdown.vue")
   },
   data() {
     return {
-      menus: [
-        { name: "生产经营系统", path: "/index" },
-        { name: "经营管理系统", path: "/index2" },
-        { name: "监管信息平台", path: "/index3" },
-        { name: "行业平台", path: "/index4" },
-        { name: "运营中心", path: "/index5" }
-      ],
+      menus: menuList,
       hoverMenu: null
     };
   },
@@ -57,22 +53,19 @@ export default {
   display: inline-flex;
   height: 100%;
   align-items: center;
-  color: #000;
-  font-size: 16px;
+  color: #fff;
+  font-size: 14px;
   vertical-align: top;
-  margin-left: 24px;
+  margin-left: 65px;
   .list {
     height: 100%;
-    line-height: 80px;
+    line-height: 55px;
     .item {
       position: relative;
       display: inline-block;
       width: max-content;
       margin-right: 12px;
       cursor: pointer;
-      &:hover {
-          color: $linkHoverColor;
-      }
       &:hover:after {
         content: "";
         position: absolute;
@@ -80,7 +73,7 @@ export default {
         height: 3px;
         bottom: 0px;
         left: 5%;
-        background: $linkHoverColor;
+        background: #FFF
       }
     }
   }

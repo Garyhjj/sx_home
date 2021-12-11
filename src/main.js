@@ -9,6 +9,7 @@ import store from "./store";
 
 import "@/styles/index.scss";
 import "@/components";
+import "@/layout/index.js";
 // svg 图标
 import "@/assets/svg-icons";
 

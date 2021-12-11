@@ -1,11 +1,11 @@
 <template>
-  <div class="menu-dropdown-container" :style="{ height: data ? '240px' : 0, borderWidth: data? '1px': '0' }">
+  <div class="menu-dropdown-container" :style="{ height: data ? height + 'px' : 0, borderWidth: data? '1px': '0' }">
     <i class="el-icon-close" @click="$emit('close')" />
     <div class="content">
       <div class="left">
         <div
           class="line"
-          v-for="item in menus"
+          v-for="item in data"
           :key="item.name"
           @mouseenter="activeTopMenuName = item.name"
           :class="{ active: activeTopMenuName === item.name }"
@@ -34,31 +34,33 @@
 export default {
   props: {
     data: {
-      type: Object
+      type: Array
+    },
+    height: {
+      type: Number,
+      default: 240
     }
   },
   data() {
     return {
-      menus: [
-        { name: "热门产品", children: [
-          { name: "智能制造", description: "评估智能制造能力" },
-          { name: "物联平台1", description: "以物联技术提升多个场景的数字化" },
-          { name: "物联平台2", description: "以物联技术提升多个场景的数字化" },
-          { name: "物联平台3", description: "以物联技术提升多个场景的数字化" },
-          { name: "物联平台4", description: "以物联技术提升多个场景的数字化" },
-          { name: "物联平台5", description: "以物联技术提升多个场景的数字化" }
-        ] },
-        { name: "软硬集成产品", children: [{ name: "智能制造2", description: "评估智能制造能力" }, { name: "物联平台", description: "以物联技术提升多个场景的数字化" }] },
-        { name: "平台级产品", children: [{ name: "智能制造3", description: "评估智能制造能力" }, { name: "物联平台", description: "以物联技术提升多个场景的数字化" }] },
-        { name: "行业级产品", children: [{ name: "智能制造4", description: "评估智能制造能力" }, { name: "物联平台", description: "以物联技术提升多个场景的数字化" }] }
-      ],
-      activeTopMenuName: "热门产品"
+      activeTopMenuName: ""
     };
   },
   computed: {
     subMenus() {
-      const target = this.menus.find(m => m.name === this.activeTopMenuName);
+      const target = (this.data || []).find(m => m.name === this.activeTopMenuName);
       return target ? target.children : [];
+    }
+  },
+  watch: {
+    data: {
+      immediate: true,
+      handler(ls) {
+        if (!ls || ls.length === 0) return;
+        if (!this.activeTopMenuName || !ls.some(l => l.name === this.activeTopMenuName)) {
+          this.activeTopMenuName = ls[0].name;
+        }
+      }
     }
   }
 };
@@ -68,8 +70,9 @@ export default {
 .menu-dropdown-container {
   position: absolute;
   left: 0;
-  top: 80px;
+  top: 95px;
   width: 100%;
+  color: #000;
   padding: 0 32px;
   border-top: 1px solid $primaryColor;
   box-sizing: border-box;

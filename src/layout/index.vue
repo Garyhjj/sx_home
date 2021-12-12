@@ -4,6 +4,7 @@
     <div class="content">
         <router-view />
     </div>
+    <fixed-sider />
     <app-footer></app-footer>
   </div>
 </template>
@@ -12,7 +13,8 @@
 export default {
   components: {
     appHeader: () => import("./components/header/index.vue"),
-    appFooter: () => import("./components/footer/index.vue")
+    appFooter: () => import("./components/footer/index.vue"),
+    fixedSider: () => import("./components/fixed-sider/index.vue")
   }
 };
 </script>

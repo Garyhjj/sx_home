@@ -4,7 +4,7 @@
 
 <style lang="scss" scoped>
 .page-content-box {
-    max-width: 1080px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 </style>

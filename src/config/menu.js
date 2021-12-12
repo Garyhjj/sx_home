@@ -1,6 +1,7 @@
 
 export const produceMenus = [
   { name: "生产经营", routeName: "productionManagement", children: [
+    { name: "生产经营信息管理平台", routeName: "infoManagement", description: "全面、稳定的实时采集设备,紧密监管煤矿企业的数据" },
     { name: "税务服务管理系统", description: "xxx" },
     { name: "煤炭流向监测系统", description: "xxxxx" },
     { name: "煤炭保供调度管理系统", description: "xxxx" },
@@ -52,6 +53,12 @@ export const produceMenus = [
   ] }
 ];
 
+const helpMenus = [
+  { name: "帮助与支持", children: [
+    { name: "联系我们", description: "专业客服助您云上无忧" }
+  ] }
+];
+
 export const menuList = [
   { name: "政策法规", path: "/index" },
   { name: "政府监管", path: "/index33" },
@@ -59,5 +66,5 @@ export const menuList = [
   { name: "企业服务", path: "/index3" },
   { name: "产业服务", path: "/index4" },
   { name: "开发者服务", path: "/index5" },
-  { name: "帮助与支持", path: "/index5" }
+  { name: "帮助与支持", path: "/index5", children: helpMenus }
 ];

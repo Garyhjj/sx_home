@@ -9,7 +9,7 @@
       <div class="right-content">
         <span class="link doc">文档中心</span>
         <span class="link">运营中心</span>
-        <span class="link login">登录</span>
+        <span class="link login"  @click="goToLogin">登录</span>
         <span class="line"></span>
         <span class="link">注册</span>
       </div>
@@ -42,6 +42,9 @@ export default {
     },
     goToHome() {
       this.$router.push({ name: "index" });
+    },
+    goToLogin() {
+      this.$router.push({ name: "login" });
     }
   }
 };

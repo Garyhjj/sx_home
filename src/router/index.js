@@ -28,8 +28,18 @@ const routes = [
       },
       {
         path: "production_management",
-        name: "productionManagement",
-        component: _import("platforms/production-management")
+        redirect: { name: "productionManagement" },
+        component: _import("platforms/production-management"),
+        children: [{
+          path: "index",
+          name: "productionManagement",
+          component: _import("platforms/production-management")
+        },
+        {
+          path: "info_management",
+          name: "infoManagement",
+          component: _import("systems/production-management/info-management")
+        }]
       }
     ]
   }

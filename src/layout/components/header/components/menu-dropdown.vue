@@ -16,7 +16,7 @@
       <div class="right">
         <div class="sub-content">
           <div v-for="item in subMenus" :key="item.name" class="sub-menu-item">
-            <div class="sub-menu-name">
+            <div class="sub-menu-name" @click="goToDetail(item)">
               {{item.name}}
               <i class="el-icon-arrow-right" />
             </div>
@@ -61,6 +61,13 @@ export default {
           this.activeTopMenuName = ls[0].name;
         }
       }
+    }
+  },
+  methods: {
+    goToDetail({ routeName }) {
+      if (!routeName) return;
+      const routeUrl = this.$router.resolve({ name: routeName });
+      window.open(routeUrl.href, "_blank");
     }
   }
 };
@@ -128,7 +135,7 @@ export default {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          height: 64px;
+          height: 56px;
           width: 33%;
           padding-left: 24px;
           padding-bottom: 16px;

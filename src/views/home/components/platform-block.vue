@@ -8,7 +8,7 @@
             <app-content-layout>
                 <div class="list">
                     <div v-for="item in produceMenus" :key="item.name" class="line">
-                        <div class="type-box">
+                        <div class="type-box"  @click="goToPlatform(item)">
                             <div class="type-content">
                                 <div class="inner-content">
                                     <div class="name">
@@ -41,6 +41,11 @@ export default {
     return {
       produceMenus
     };
+  },
+  methods: {
+    goToPlatform({ routeName }) {
+      routeName && this.$router.push({ name: routeName });
+    }
   }
 };
 </script>

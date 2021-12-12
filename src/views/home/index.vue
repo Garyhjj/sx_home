@@ -3,31 +3,31 @@
     <div class="banner-box">
       <el-carousel height="calc(100vh - 310px)" class="banner" :interval="6000" arrow="never">
         <el-carousel-item>
-          <img src="~@/assets/images/home_banner_bg1.png" alt="" />
-          <div class="first-block">first-block</div>
-          <div class="page-title">
-            <div class="line">争当能源革命排头兵</div>
-            <div class="line">谱写山西能源新篇章</div>
-            <div class="underline"></div>
-          </div>
+          <app-banner-layout :img="banner1">
+            <div class="page-title">
+              <div class="line">争当能源革命排头兵</div>
+              <div class="line">谱写山西能源新篇章</div>
+              <div class="underline"></div>
+            </div>
+          </app-banner-layout>
         </el-carousel-item>
         <el-carousel-item>
-          <img src="~@/assets/images/home_banner_bg2.png" alt="" />
-          <div class="first-block">second-block</div>
-          <div class="page-title">
-            <div class="line">争当能源革命排头兵</div>
-            <div class="line">谱写山西能源新篇章</div>
-            <div class="underline"></div>
-          </div>
+          <app-banner-layout :img="banner2">
+            <div class="page-title">
+              <div class="line">争当能源革命排头兵</div>
+              <div class="line">谱写山西能源新篇章</div>
+              <div class="underline"></div>
+            </div>
+          </app-banner-layout>
         </el-carousel-item>
         <el-carousel-item>
-          <img src="~@/assets/images/home_banner_bg3.png" alt="" />
-          <div class="first-block">third-block</div>
-          <div class="page-title">
-            <div class="line">争当能源革命排头兵</div>
-            <div class="line">谱写山西能源新篇章</div>
-            <div class="underline"></div>
-          </div>
+          <app-banner-layout :img="banner3">
+            <div class="page-title">
+              <div class="line">争当能源革命排头兵</div>
+              <div class="line">谱写山西能源新篇章</div>
+              <div class="underline"></div>
+            </div>
+          </app-banner-layout>
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -50,6 +50,10 @@ import statisticsBlock from "./components/statistics-block.vue";
 import buildBlock from "./components/build-block";
 import mapBlock from "./components/map-block";
 
+const banner1 = require("@/assets/images/home_banner_bg1.png");
+const banner2 = require("@/assets/images/home_banner_bg1.png");
+const banner3 = require("@/assets/images/home_banner_bg1.png");
+
 export default {
   name: "Home",
   components: {
@@ -63,6 +67,9 @@ export default {
   },
   data() {
     return {
+      banner1,
+      banner2,
+      banner3
     };
   },
   mounted() {},
@@ -75,11 +82,7 @@ export default {
 .banner-box {
   position: relative;
   .page-title {
-    position: absolute;
-    left: 20%;
-    top: 50%;
     color: #4882D9;
-    margin-top: -60px;
     font-size: 24px;
     z-index: 99;
     overflow: hidden;

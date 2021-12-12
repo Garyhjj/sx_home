@@ -1,6 +1,6 @@
 
 export const produceMenus = [
-  { name: "生产经营", children: [
+  { name: "生产经营", routeName: "productionManagement", children: [
     { name: "税务服务管理系统", description: "xxx" },
     { name: "煤炭流向监测系统", description: "xxxxx" },
     { name: "煤炭保供调度管理系统", description: "xxxx" },

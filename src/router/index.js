@@ -20,11 +20,16 @@ const routes = [
         name: "index",
         component: _import("home")
       },
-      // 首页
+      // 登录
       {
         path: "login",
         name: "login",
         component: _import("login")
+      },
+      {
+        path: "production_management",
+        name: "productionManagement",
+        component: _import("platforms/production-management")
       }
     ]
   }

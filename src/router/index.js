@@ -26,6 +26,13 @@ const routes = [
         name: "login",
         component: _import("login")
       },
+      // 联系我们
+      {
+        path: "support/contact",
+        name: "contact",
+        component: _import("support/contact")
+      },
+      // 生产经营板块
       {
         path: "production_management",
         redirect: { name: "productionManagement" },

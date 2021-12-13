@@ -101,6 +101,7 @@ export default {
   margin-top: 40px;
   padding: 38px 20px;
   background: #f4f5fa;
+  box-sizing: border-box;
   .line {
     display: flex;
     .item {

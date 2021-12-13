@@ -1,7 +1,7 @@
 <template>
   <div class="header-contaner">
     <div class="header-top">
-      <span class="link" @click="openWindow('http://www.shanxi.gov.cn/')">山西省政府</span
+      <span class="link" @click="openWindow('http://www.shanxi.gov.cn/')">山西省人民政府</span
       >
       <span class="line"></span>
       <span class="link" @click="openWindow('http://nyj.shanxi.gov.cn/')">山西省能源局</span

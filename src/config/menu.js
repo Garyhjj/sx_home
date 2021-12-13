@@ -8,8 +8,8 @@ export const produceMenus = [
     { name: "决策支持系统", description: "" },
     { name: "视频智能监管系统", description: "" }
   ] },
-  { name: "能耗监测系统", children: [
-    { name: "能耗监测系统", description: "" },
+  { name: "双碳服务", children: [
+    { name: "能耗在线监测系统", description: "" },
     { name: "双控指标管理系统", description: "" },
     { name: "能源计量管理系统", description: "" },
     { name: "节能监察管理系统", description: "" },
@@ -55,14 +55,13 @@ export const produceMenus = [
 
 const helpMenus = [
   { name: "帮助与支持", children: [
-    { name: "联系我们", description: "专业客服助您云上无忧" }
+    { name: "联系我们", description: "专业客服助您云上无忧", routeName: "contact" }
   ] }
 ];
 
 export const menuList = [
   { name: "政策法规", path: "/index" },
-  { name: "政府监管", path: "/index33" },
-  { name: "产品", path: "/index2", children: produceMenus, dropdownHeight: 320 },
+  { name: "政府监管", path: "/index2", children: produceMenus, dropdownHeight: 320 },
   { name: "企业服务", path: "/index3" },
   { name: "产业服务", path: "/index4" },
   { name: "开发者服务", path: "/index5" },

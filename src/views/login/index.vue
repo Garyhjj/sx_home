@@ -37,6 +37,7 @@ export default {
 <style lang="scss" scoped>
 .login-container {
   position: relative;
+  min-height: 600px;
   height: calc(100vh - 170px);
   width: 100%;
   background: url("~@/assets/images/login_bg.png") no-repeat;
@@ -51,6 +52,7 @@ export default {
   height: 568px;
   background: #fff;
   box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.33) 0px 0px 10px;
 }
 
 .login-box .title {

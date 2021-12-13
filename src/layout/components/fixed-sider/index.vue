@@ -28,8 +28,8 @@ export default {};
 .small-sider-box {
   position: fixed;
   z-index: 9999;
-  top: 50%;
-  right: 47px;
+  top: 60%;
+  right: 32px;
   margin-top: -35px;
   width: 69px;
   height: 141px;

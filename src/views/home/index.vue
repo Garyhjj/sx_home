@@ -51,8 +51,8 @@ import buildBlock from "./components/build-block";
 import mapBlock from "./components/map-block";
 
 const banner1 = require("@/assets/images/home_banner_bg1.png");
-const banner2 = require("@/assets/images/home_banner_bg1.png");
-const banner3 = require("@/assets/images/home_banner_bg1.png");
+const banner2 = require("@/assets/images/home_banner_bg2.png");
+const banner3 = require("@/assets/images/home_banner_bg3.png");
 
 export default {
   name: "Home",
@@ -103,6 +103,9 @@ export default {
       transition: all 0.8s;
     }
   }
+}
+.top ::v-deep .page-content-box {
+  max-height: calc(100vh - 310px);
 }
 @media (min-width: 1900px) {
   .banner-box .page-title {

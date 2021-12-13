@@ -114,4 +114,37 @@ export default {
     border-radius: 36px;
   }
 }
+
+@media (min-width: 1900px) {
+  .search {
+    width: 280px;
+  }
+}
+@media (max-width: 1899px) and (min-width: 1700px) {
+  .search {
+    width: 240px;
+  }
+}
+@media (max-width: 1699px) and (min-width: 1500px) {
+  .search {
+    width: 200px;
+  }
+}
+@media (max-width: 1499px) and (min-width: 1300px) {
+  .search {
+    width: 180px;
+  }
+}
+
+@media (max-width: 1299px) and (min-width: 1100px)  {
+  .search {
+    width: 140px;
+  }
+}
+
+@media (max-width: 1099px) {
+  .search {
+    width: 100px;
+  }
+}
 </style>

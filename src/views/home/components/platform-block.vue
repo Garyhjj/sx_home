@@ -8,7 +8,7 @@
             <app-content-layout>
                 <div class="list">
                     <div v-for="item in produceMenus" :key="item.name" class="line">
-                        <div class="type-box"  @click="goToPlatform(item)">
+                        <div class="type-box"  @click="goToDetail(item)">
                             <div class="type-content">
                                 <div class="inner-content">
                                     <div class="name">
@@ -20,7 +20,7 @@
                             <div class="type-bg"></div>
                         </div>
                         <div class="sub-list">
-                            <div v-for="sub in item.children.slice(0,3)" :key="sub.name" class="item">
+                            <div v-for="sub in item.children.slice(0,3)" :key="sub.name" class="item" @click="goToDetail(item)">
                                 <div class="title">{{sub.name}}</div>
                                 <div class="text">{{sub.description}}</div>
                             </div>
@@ -43,8 +43,10 @@ export default {
     };
   },
   methods: {
-    goToPlatform({ routeName }) {
-      routeName && this.$router.push({ name: routeName });
+    goToDetail({ routeName }) {
+      if (!routeName) return;
+      const routeUrl = this.$router.resolve({ name: routeName });
+      window.open(routeUrl.href, "_blank");
     }
   }
 };
@@ -151,10 +153,16 @@ export default {
                 .item {
                     width: 33.3%;
                     padding-left: 26px;
+                    background-color: rgb(249, 252, 255);
                     cursor: pointer;
                     &:nth-child(odd)
                     {
                         background:rgb(243, 245, 255);
+                    }
+                    &:hover {
+                       background: #FFF;
+                       box-shadow: rgba(0, 0, 0, 0.33) 0px 0px 10px;
+                       z-index: 999;
                     }
                     .title {
                         height: 18px;

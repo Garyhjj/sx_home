@@ -5,8 +5,8 @@
         <el-carousel-item>
           <app-banner-layout :img="banner1">
             <div class="page-title">
-              <div class="line">争当能源革命排头兵</div>
-              <div class="line">谱写山西能源新篇章</div>
+              <div class="line">践行能源革命转型路径</div>
+              <div class="line">打造数字煤炭山西样板</div>
               <div class="underline"></div>
             </div>
           </app-banner-layout>
@@ -14,8 +14,8 @@
         <el-carousel-item>
           <app-banner-layout :img="banner2">
             <div class="page-title">
-              <div class="line">争当能源革命排头兵</div>
-              <div class="line">谱写山西能源新篇章</div>
+              <div class="line">立足山西，覆盖全国</div>
+              <div class="line">打造煤炭领域一站式综合服务平台</div>
               <div class="underline"></div>
             </div>
           </app-banner-layout>
@@ -23,8 +23,8 @@
         <el-carousel-item>
           <app-banner-layout :img="banner3">
             <div class="page-title">
-              <div class="line">争当能源革命排头兵</div>
-              <div class="line">谱写山西能源新篇章</div>
+              <div class="line">数据共享、互联互通，精准服务</div>
+              <div class="line">全覆盖、全流程、全口径、全方位</div>
               <div class="underline"></div>
             </div>
           </app-banner-layout>

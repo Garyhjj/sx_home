@@ -17,9 +17,9 @@
 
 <style lang="scss" scoped>
 .footer-box {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    // position: fixed;
+    // bottom: 0;
+    // left: 0;
     width: 100%;
     background-color: #274E91;
     text-align: center;

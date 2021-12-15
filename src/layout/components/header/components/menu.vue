@@ -38,8 +38,10 @@ export default {
   },
   created() {},
   methods: {
-    handleClickMenu(item) {
-      this.$router.push({ path: item.path });
+    handleClickMenu({ routeName }) {
+      if (!routeName) return;
+      const routeUrl = this.$router.resolve({ name: routeName });
+      window.open(routeUrl.href, "_blank");
     },
     goToLogin() {
       this.$router.push({ name: "login" });

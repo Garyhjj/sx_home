@@ -32,23 +32,33 @@ const routes = [
         name: "contact",
         component: _import("support/contact")
       },
-      // 生产经营板块
+      // 开发者服务
       {
-        path: "production_management",
-        redirect: { name: "productionManagement" },
-        component: _import("platforms/production-management"),
-        children: [{
-          path: "index",
-          name: "productionManagement",
-          component: _import("platforms/production-management")
-        },
-        {
-          path: "info_management",
-          name: "infoManagement",
-          component: _import("systems/production-management/info-management")
-        }]
+        path: "dev_service",
+        name: "devService",
+        component: _import("dev-service")
       }
     ]
+  },
+  // 生产经营板块
+  {
+    path: "/production_management",
+    redirect: { name: "productionManagement" },
+    component: mainLayout,
+    children: [{
+      path: "index",
+      name: "productionManagement",
+      component: _import("platforms/production-management")
+    },
+    {
+      path: "info_management",
+      name: "infoManagement",
+      component: _import("systems/production-management/info-management")
+    }]
+  },
+  {
+    path: "*",
+    redirect: "/index"
   }
 ];
 

@@ -60,10 +60,10 @@ const helpMenus = [
 ];
 
 export const menuList = [
-  { name: "政策法规", path: "/index" },
-  { name: "政府监管", path: "/index2", children: produceMenus, dropdownHeight: 320 },
-  { name: "企业服务", path: "/index3" },
-  { name: "产业服务", path: "/index4" },
-  { name: "开发者服务", path: "/index5" },
-  { name: "帮助与支持", path: "/index5", children: helpMenus }
+  { name: "政策法规" },
+  { name: "政府监管", children: produceMenus, dropdownHeight: 320 },
+  { name: "企业服务" },
+  { name: "产业服务" },
+  { name: "开发者服务", routeName: "devService" },
+  { name: "帮助与支持", children: helpMenus }
 ];

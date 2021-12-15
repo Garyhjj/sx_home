@@ -38,7 +38,7 @@ export default {
 .login-container {
   position: relative;
   min-height: 600px;
-  height: calc(100vh - 170px);
+  height: calc(100vh - 168px);
   width: 100%;
   background: url("~@/assets/images/login_bg.png") no-repeat;
 }

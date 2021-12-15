@@ -37,6 +37,12 @@ const routes = [
         path: "dev_service",
         name: "devService",
         component: _import("dev-service")
+      },
+      // 政策法规
+      {
+        path: "policy",
+        name: "policy",
+        component: _import("policy")
       }
     ]
   },

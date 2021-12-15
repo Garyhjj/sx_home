@@ -60,7 +60,7 @@ const helpMenus = [
 ];
 
 export const menuList = [
-  { name: "政策法规" },
+  { name: "政策法规", routeName: "policy" },
   { name: "政府监管", children: produceMenus, dropdownHeight: 320 },
   { name: "企业服务" },
   { name: "产业服务" },

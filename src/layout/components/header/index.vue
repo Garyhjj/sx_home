@@ -18,7 +18,7 @@
       <div class="logo-box" @click="goToHome"><img src="~@/assets/images/logo.png" alt=""></div>
       <app-menu />
       <div class="search">
-        <el-input v-model="searchText" size="medium">
+        <el-input v-model="searchText" size="medium" @keyup.enter.native="onQuerySearch()">
           <i slot="prefix" class="el-input__icon el-icon-search"></i>
         </el-input>
       </div>
@@ -45,6 +45,10 @@ export default {
     },
     goToLogin() {
       this.$router.push({ name: "login" });
+    },
+    onQuerySearch() {
+      if (!this.searchText) return;
+      this.$router.push({ name: "search", query: { text: this.searchText }});
     }
   }
 };
@@ -56,7 +60,8 @@ export default {
   left: 0;
   right: 0;
   top: 0;
-  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
   z-index: 99;
 }
 .header-top {

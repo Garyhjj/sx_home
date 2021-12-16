@@ -109,12 +109,12 @@ export default {
 }
 @media (min-width: 1900px) {
   .banner-box .page-title {
-    font-size: 46px;
+    font-size: 40px;
   }
 }
 @media (max-width: 1899px) and (min-width: 1700px) {
   .banner-box .page-title {
-    font-size: 42px;
+    font-size: 40px;
   }
 }
 @media (max-width: 1699px) and (min-width: 1500px) {

@@ -235,7 +235,7 @@ export default {
   width: 100%;
   height: 55px;
   background: #ffffff;
-  box-shadow: 10px 0px 13px 0px rgba(0, 0, 0, 0.33);
+  box-shadow: 2px 3px 8px -4px rgb(0 0 0 / 20%);
 }
 .tab-box {
   position: relative;

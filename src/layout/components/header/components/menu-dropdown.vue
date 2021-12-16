@@ -2,7 +2,7 @@
   <div class="menu-dropdown-container" :style="{ height: data ? height + 'px' : 0, borderWidth: data? '1px': '0' }">
     <i class="el-icon-close" @click="$emit('close')" />
     <div class="content">
-      <div class="left">
+      <div class="left" :style="{ display: noSider ? 'none' : 'block'}">
         <div
           class="line"
           v-for="item in data"
@@ -15,7 +15,7 @@
       </div>
       <div class="right">
         <div class="sub-content">
-          <div v-for="item in subMenus" :key="item.name" class="sub-menu-item">
+          <div v-for="item in subMenus" :key="item.name" class="sub-menu-item" :class="{disabled: !item.routeName}">
             <div class="sub-menu-name" @click="goToDetail(item)">
               {{item.name}}
               <i class="el-icon-arrow-right" />
@@ -39,7 +39,8 @@ export default {
     height: {
       type: Number,
       default: 240
-    }
+    },
+    noSider: Boolean
   },
   data() {
     return {
@@ -125,6 +126,7 @@ export default {
     .right {
       height: 100%;
       flex: 1;
+      max-width: calc(100% - 220px);
       padding-top: 40px;
       padding-left: 55px;
       padding-bottom: 16px;
@@ -141,6 +143,14 @@ export default {
           padding-bottom: 16px;
           margin-bottom: 8px;
           box-sizing: border-box;
+          &.disabled {
+            .sub-menu-name {
+              cursor: not-allowed;
+              &:hover {
+                color: #000;
+              }
+            }
+          }
           .sub-menu-name {
             font-weight: 600;
             cursor: pointer;
@@ -153,6 +163,9 @@ export default {
           }
           .sub-menu-description {
             color: $fontColorLevel3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
           }
         }
       }

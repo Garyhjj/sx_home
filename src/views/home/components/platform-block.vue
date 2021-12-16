@@ -8,7 +8,7 @@
             <app-content-layout>
                 <div class="list">
                     <div v-for="item in produceMenus" :key="item.name" class="line">
-                        <div class="type-box"  @click="goToDetail(item)">
+                        <div class="type-box"  @click="goToPlatform(item)">
                             <div class="type-content">
                                 <div class="inner-content">
                                     <div class="name">
@@ -20,7 +20,7 @@
                             <div class="type-bg"></div>
                         </div>
                         <div class="sub-list">
-                            <div v-for="sub in item.children.slice(0,3)" :key="sub.name" class="item" @click="goToDetail(item)">
+                            <div v-for="sub in item.children.slice(0,3)" :key="sub.name" :class="{disabled: !sub.routeName}" class="item" @click="goToDetail(sub)">
                                 <div class="title">{{sub.name}}</div>
                                 <div class="text">{{sub.description}}</div>
                                 <div class="check">查看详情</div>
@@ -44,6 +44,12 @@ export default {
     };
   },
   methods: {
+    goToPlatform(item) {
+      const routeUrl = this.$router.resolve({ name: "productionManagement", query: {
+        name: item.name
+      }});
+      window.open(routeUrl.href, "_blank");
+    },
     goToDetail({ routeName }) {
       if (!routeName) return;
       const routeUrl = this.$router.resolve({ name: routeName });
@@ -180,6 +186,7 @@ export default {
             .sub-list {
                 flex: 1;
                 display: flex;
+                width: calc(100% - 230px);
                 .item {
                     position: relative;
                     width: 33.3%;
@@ -190,10 +197,13 @@ export default {
                     {
                         background:rgb(243, 245, 255);
                     }
-                    &:hover {
+                    &.disabled {
+                        cursor: not-allowed;
+                    }
+                    &:not(.disabled):hover {
                        background: #FFF;
                        box-shadow: rgba(0, 0, 0, 0.33) 0px 0px 10px;
-                       z-index: 999;
+                       z-index: 9;
                        .title, .text {
                            color: #3F85ED;
                        }
@@ -223,6 +233,9 @@ export default {
                         color: #606266;
                         line-height: 15px;
                         margin-top: 16px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                         transition: all 0.3s;
                     }
                     .check {

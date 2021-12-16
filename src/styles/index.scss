@@ -1,5 +1,8 @@
 @import "./variables.scss";
 
 body {
-    font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu
+    font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+    max-width: 1920px;
+    margin: 0 auto;
+    background: #000;
 }

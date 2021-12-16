@@ -43,6 +43,12 @@ const routes = [
         path: "policy",
         name: "policy",
         component: _import("policy")
+      },
+      // 搜索结果
+      {
+        path: "search",
+        name: "search",
+        component: _import("search")
       }
     ]
   },

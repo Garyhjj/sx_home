@@ -11,7 +11,7 @@
         {{ item.name }}
       </span>
     </div>
-    <menuDropdown class="dropdown" :data="hoverMenu && hoverMenu.children" :height="hoverMenu && hoverMenu.dropdownHeight"  @close="hoverMenu = null" />
+    <menuDropdown class="dropdown" :no-sider="hoverMenu && hoverMenu.noSider" :data="hoverMenu && hoverMenu.children" :height="hoverMenu && hoverMenu.dropdownHeight"  @close="hoverMenu = null" />
   </div>
 </template>
 

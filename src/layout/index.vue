@@ -23,5 +23,7 @@ export default {
 .main-container {
   padding-top: 95px;
   // padding-bottom: 75px;
+  background: #FFF;
+
 }
 </style>

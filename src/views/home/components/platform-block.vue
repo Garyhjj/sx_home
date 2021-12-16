@@ -23,6 +23,7 @@
                             <div v-for="sub in item.children.slice(0,3)" :key="sub.name" class="item" @click="goToDetail(item)">
                                 <div class="title">{{sub.name}}</div>
                                 <div class="text">{{sub.description}}</div>
+                                <div class="check">查看详情</div>
                             </div>
                         </div>
                     </div>
@@ -74,25 +75,51 @@ export default {
             &:not(:last-child) {
                 margin-bottom: 20px;
             }
+            &:hover {
+                .type-box {
+                    .type-content {
+                        .inner-content {
+                            margin-top: 25px;
+                        }
+                        .more {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            &:nth-child(2) {
+                .type-box .type-bg {
+                    background: url("~@/assets/images/platform_name_bg2.png") no-repeat;
+                }
+            }
+            &:nth-child(3) {
+                .type-box .type-bg {
+                    background: url("~@/assets/images/platform_name_bg3.png") no-repeat;
+                }
+            }
+            &:nth-child(4) {
+                .type-box .type-bg {
+                    background: url("~@/assets/images/platform_name_bg4.png") no-repeat;
+                }
+            }
+            &:nth-child(5) {
+                .type-box .type-bg {
+                    background: url("~@/assets/images/platform_name_bg5.png") no-repeat;
+                }
+            }
             .type-box {
                 position: relative;
                 width: 230px;
                 background: #FFF;
-                &:hover {
-                    .type-bg {
-                        opacity: 1;
-                    }
-                }
                 .type-bg {
                     position: absolute;
                     top: 0;
                     left: 0;
                     width: 100%;
                     height: 100%;
-                    background: #00ff00 url("~@/assets/images/platform_name_bg.png") no-repeat;
+                    background: url("~@/assets/images/platform_name_bg1.png") no-repeat;
                     background-size: 100% 100%;
-                    opacity: 0;
-                    transition: all 0.3s;
+                    opacity: 1;
                 }
                 .type-content{
                     position: absolute;
@@ -106,6 +133,9 @@ export default {
                         }
                         .more {
                             opacity: 1;
+                        }
+                        .name {
+                            color: #3F85ED;
                         }
                     }
                     .inner-content {
@@ -151,6 +181,7 @@ export default {
                 flex: 1;
                 display: flex;
                 .item {
+                    position: relative;
                     width: 33.3%;
                     padding-left: 26px;
                     background-color: rgb(249, 252, 255);
@@ -163,6 +194,18 @@ export default {
                        background: #FFF;
                        box-shadow: rgba(0, 0, 0, 0.33) 0px 0px 10px;
                        z-index: 999;
+                       .title, .text {
+                           color: #3F85ED;
+                       }
+                       .title {
+                           margin-top: 36px;
+                       }
+                       .text {
+                           margin-top: 8px;
+                       }
+                       .check {
+                           opacity: 1;
+                       }
                     }
                     .title {
                         height: 18px;
@@ -170,7 +213,8 @@ export default {
                         font-weight: 500;
                         color: #303133;
                         line-height: 18px;
-                        margin: 46px 0 16px 0;
+                        margin-top: 46px;
+                        transition: all 0.3s;
                     }
                     .text {
                         height: 15px;
@@ -178,6 +222,22 @@ export default {
                         font-weight: 500;
                         color: #606266;
                         line-height: 15px;
+                        margin-top: 16px;
+                        transition: all 0.3s;
+                    }
+                    .check {
+                        position: absolute;
+                        right: 16px;
+                        bottom: 16px;
+                        width: 100px;
+                        height: 23px;
+                        background: #1F58AE;
+                        font-size: 14px;
+                        color: #FFFFFF;
+                        text-align: center;
+                        line-height: 23px;
+                        opacity: 0;
+                        transition: all 0.3s;
                     }
                 }
             }

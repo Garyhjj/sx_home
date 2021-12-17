@@ -7,8 +7,8 @@
       <span class="link" @click="openWindow('http://nyj.shanxi.gov.cn/')">山西省能源局</span
       >
       <div class="right-content">
-        <span class="link doc">文档中心</span>
-        <span class="link">运营中心</span>
+        <span class="link doc" @click="goToDoc">文档中心</span>
+        <span class="link" @click="goToDataScreen">运营中心</span>
         <span class="link login"  @click="goToLogin">登录</span>
         <span class="line"></span>
         <span class="link">注册</span>
@@ -49,6 +49,12 @@ export default {
     onQuerySearch() {
       if (!this.searchText) return;
       this.$router.push({ name: "search", query: { text: this.searchText }});
+    },
+    goToDoc() {
+      this.$router.push({ name: "doc" });
+    },
+    goToDataScreen() {
+      window.open("http://111.53.212.59:28000/", "_blank");
     }
   }
 };

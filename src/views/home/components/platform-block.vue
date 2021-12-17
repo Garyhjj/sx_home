@@ -191,6 +191,7 @@ export default {
                     position: relative;
                     width: 33.3%;
                     padding-left: 26px;
+                    box-sizing: border-box;
                     background-color: rgb(249, 252, 255);
                     cursor: pointer;
                     &:nth-child(odd)
@@ -223,19 +224,20 @@ export default {
                         font-weight: 500;
                         color: #303133;
                         line-height: 18px;
-                        margin-top: 46px;
+                        margin-top: 36px;
                         transition: all 0.3s;
                     }
                     .text {
-                        height: 15px;
                         font-size: 14px;
                         font-weight: 500;
                         color: #606266;
-                        line-height: 15px;
+                        line-height: 18px;
                         margin-top: 16px;
-                        white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
                         transition: all 0.3s;
                     }
                     .check {

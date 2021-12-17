@@ -1,7 +1,7 @@
 
 export const produceMenus = [
   { name: "生产经营", routeName: "productionManagement", children: [
-    { name: "生产经营信息管理平台", routeName: "infoManagement", description: "对企业产、供、储、销、运及关联数据进行全面汇聚，形成基础数据资源池。" },
+    { name: "产供储销监测与管理系统", routeName: "infoManagement", description: "对企业产、供、储、销、运及关联数据进行全面汇聚，形成基础数据资源池。" },
     { name: "税务服务管理系统", description: "管理企业税收相关数据，为税务机关税收稽核提供依据。" },
     { name: "煤炭流向监测系统", description: "动态监测企业数据，形成生产-》销售-》运输的煤炭流向数据。" },
     { name: "煤炭保供调度管理系统", description: "对用煤需求、运力运量、合同履约等数据进行综合管理，统筹资源调配。" },
@@ -10,7 +10,7 @@ export const produceMenus = [
     { name: "企业经营分析系统", description: "通过企业生产经营数据，进行企业纳税行为、企业风险等综合分析。" }
   ] },
   { name: "双碳服务", children: [
-    { name: "能耗在线监测系统", description: "涵盖全省重点用能企业，包含能耗数据采集、能效分析、节能管理、在线数据质量管理等功能模块。" },
+    { name: "能耗在线监测系统", routeName: "powerObserve", description: "涵盖全省重点用能企业，包含能耗数据采集、能效分析、节能管理、在线数据质量管理等功能模块。" },
     { name: "双控指标管理系统", description: "对各能源品种消费总量进行跟踪监测、预测预警及考核评价，可按地区、按行业、按重点用能单位等维度进行对标分析。" },
     { name: "能源计量管理系统", description: "实现对企业计量器具配备情况统计、计量器具运行信息统一维护管理、能源计量管理体系审查、汇总企业计量人员档案等功能" },
     { name: "节能监察管理系统", description: "实现节能资料备案监察、数据监察、目标监察功能。实现节能监察机构管理、监察执法人员管理、在办案件统计、已办案件统计。" },
@@ -65,8 +65,8 @@ const helpMenus = [
 export const menuList = [
   { name: "政策法规", routeName: "policy" },
   { name: "政府监管", children: produceMenus.slice(0, 3), dropdownHeight: 320 },
-  { name: "企业服务", children: [produceMenus[3]], noSider: true, dropdownHeight: 300 },
-  { name: "产业赋能", children: [produceMenus[4]], noSider: true },
+  { name: "企业服务", routeName: "companyService" },
+  { name: "产业赋能", routeName: "productionPower" },
   { name: "开发者服务", routeName: "devService" },
   { name: "帮助与支持", children: helpMenus }
 ];

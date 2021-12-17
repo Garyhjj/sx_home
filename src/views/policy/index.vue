@@ -32,7 +32,7 @@
           </div>
         </div>
         <div class="list">
-          <div v-for="(article, idx) in list" :key="idx" class="list-item">
+          <div v-for="(article, idx) in list" :key="idx" class="list-item" @click="goToDetail(article)">
             <div class="title">{{ article.title }}</div>
             <div class="time">{{ article.time }}</div>
           </div>
@@ -54,6 +54,7 @@
 
 <script>
 const bg = require("@/assets/images/policy_banner.png");
+import { policyList } from "./mock";
 
 export default {
   data() {
@@ -77,28 +78,23 @@ export default {
   },
   methods: {
     handleTypeChange({ name }) {
-      if (this.currentType !== name) {
-        this.currentType = name;
-        this.currentPage = 1;
-        this.getList({ page: this.currentPage - 1 });
-      }
+      // if (this.currentType !== name) {
+      //   this.currentType = name;
+      //   this.currentPage = 1;
+      //   this.getList({ page: this.currentPage - 1 });
+      // }
     },
     getList(params) {
-      const mockNews = {
-        title: "国家煤矿安监局国家能源局关于印发《煤矿瓦斯等级鉴定办法》的通知",
-        time: "2018-05-14 09:40"
-      };
-      const list = [];
-      let max = this.size;
-      while (max--) {
-        list.push({ ...mockNews });
-      }
+      const list = policyList.slice(params.page ? (params.page * this.size - 1) : 0, this.size);
       this.list = list;
-      this.total = 40;
+      this.total = policyList.length;
     },
     handleCurrentChange(current) {
       this.currentPage = current;
       this.getList({ page: current - 1 });
+    },
+    goToDetail(item) {
+      this.$router.push({ name: "policyDetail", query: { id: item.id }});
     }
   }
 };

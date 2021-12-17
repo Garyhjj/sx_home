@@ -21,7 +21,7 @@
         </div>
 
         <div class="list">
-          <div v-for="item in list" :key="item.name" class="list-item">
+          <div v-for="item in list" :key="item.name" class="list-item" :class="{ disabled: !item.routeName }" @click="goToDetail(item)">
             <div class="inner-box">
               <div class="title">{{ item.name }}</div>
               <div class="description">
@@ -51,6 +51,13 @@ export default {
     const name = this.name = this.$route.query.name || produceMenus[0].name;
     const target = produceMenus.find((p) => p.name === name);
     this.list = target ? target.children : produceMenus[0].children;
+  },
+  methods: {
+    goToDetail({ routeName }) {
+      if (!routeName) return;
+      const routeUrl = this.$router.resolve({ name: routeName });
+      window.open(routeUrl.href, "_blank");
+    }
   }
 };
 </script>
@@ -110,7 +117,10 @@ export default {
     background: #ffffff;
     cursor: pointer;
     transition: all 0.3s;
-    &:hover {
+    &.disabled {
+      cursor: not-allowed;
+    }
+    &:not(.disabled):hover {
       transform: translateY(-8px);
     }
     .inner-box {

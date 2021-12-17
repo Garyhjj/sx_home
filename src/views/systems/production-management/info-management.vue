@@ -2,7 +2,7 @@
   <div class="platform-container">
     <app-banner-layout :img="bannerImg">
       <div class="message-box">
-        <div class="title">生产经营信息管理平台</div>
+        <div class="title">产供储销监测与管理系统</div>
         <div class="text">
           <div class="line">
             以全面、稳定的实时采集设备,紧密监管煤矿企业的数据,保证真实准确的产销,通过精准的AI分析
@@ -11,7 +11,7 @@
             解决企业生产数据“上报不实、应统尽统”入库不全、“跑冒滴漏”企业税收漏洞等问题
           </div>
         </div>
-        <el-button type="primary" round class="btn">立即进入</el-button>
+        <el-button type="primary" round class="btn" @click="goToSystem">立即进入</el-button>
       </div>
     </app-banner-layout>
     <div class="tabs-box">
@@ -96,13 +96,13 @@
             <img src="~@/assets/images/production_management_img3.png" alt="" />
             <div class="text-outter-box">
               <div class="line">
-                既有省级信息化平台数据，向上接入国家级平台数据，
+                纵向接入国家级平台煤炭行业数据，
               </div>
               <div class="line">
-                通过与煤炭交易、税收、物流、银行等服务平台数据共享，形成全省煤炭产、运、储、销全产业链数据池，
+                横向接入省级政务平台统计数据，整合既有省级煤炭信息化平台数据，
               </div>
               <div class="line">
-                通过算法模型进行多维数据比对，有效整合分析全省煤炭企业物流、人流、资金流、信息流
+                向下采集煤炭企业基础数据，形成全省煤炭行业产、运、储、销全产业链数据池。
               </div>
             </div>
           </div>
@@ -164,8 +164,8 @@ export default {
   },
   mounted() {
     const fn = () => {
-      const visibleIdx = this.functionList.findIndex((f, i) => this.isEleVisible(this.$refs["block" + (i + 1)])) || 1;
-      this.activeName = this.functionList[visibleIdx - 1].name;
+      const visibleIdx = this.functionList.findIndex((f, i) => this.isEleVisible(this.$refs["block" + (i + 1)])) || 0;
+      this.activeName = this.functionList[visibleIdx].name;
     };
     window.addEventListener("scroll", fn);
     this.$once("hook:beforeDestroy", () => {
@@ -184,13 +184,15 @@ export default {
     isEleVisible(ele) {
       const { top, bottom } = ele.getBoundingClientRect();
       const h = window.innerHeight;
-      const header = 95;
       const footer = 73;
-      if (bottom < 0 || top > (h - footer) || top < header) {
+      if (bottom < 0 || top > (h - footer)) {
         // y 轴方向
         return false;
       }
       return true;
+    },
+    goToSystem() {
+      window.open("http://111.53.212.59:28180/#/wait?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2ZXIiOiJ2MS4wIiwiY29kZSI6IjE0IiwiY29tZW5hbWUiOiJsY2p0MiIsImlzcyI6ImNvYWwgc2FsZUBzeHlnc2oiLCJ1c2VydHlwZSI6IjQiLCJ1c2Vycm9sZSI6IjMiLCJ0eXBlIjoidG9rZW4iLCJhdWQiOiJodHRwczovL2FuYWx5c2lzLnN4eWdzai5jb20vY2FvbHNhbGUvYXBpIiwicGFzc3dvcmQiOiI2ODZiNGRjYWJhNTkyMWEwMTRkZDQwYzExOTI3MDRjMSIsIm5iZiI6MTYzOTcyMjk1OCwidXNlcmxldmVsIjoiMSIsInRlbCI6IjExMTExMTExMTEiLCJpZCI6ImEwNWE1MTMwZWQ5ZDQzNWY5YTkzNWJkZTNkOWMyMjIyIiwidXNlcm5hbWUiOiLmtarmva7pm4blm6IiLCJhbGFybWxldmVsIjoiMCJ9.WAOyKq-_kCDpuJ0yNdkt2TpqzodOTqIP0RJoWr_1SFQ", "_blank");
     }
   }
 };

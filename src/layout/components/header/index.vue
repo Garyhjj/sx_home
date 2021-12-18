@@ -18,9 +18,10 @@
       <div class="logo-box" @click="goToHome"><img src="~@/assets/images/logo.png" alt=""></div>
       <app-menu />
       <div class="search">
-        <el-input v-model="searchText" size="medium" @keyup.enter.native="onQuerySearch()">
-          <i slot="prefix" class="el-input__icon el-icon-search"></i>
+        <el-input v-model="searchText" size="small" @keyup.enter.native="onQuerySearch()">
         </el-input>
+
+        <div class="search-btn" @click="onQuerySearch"><i class="el-icon-search"></i></div>
       </div>
     </div>
   </div>
@@ -76,9 +77,9 @@ export default {
   font-size: 14px;
   font-family: Source Han Sans CN;
   font-weight: 400;
-  color: #2260a5;
+  color: #FFFFFF;
   padding: 0 66px 0 40px;
-  background: #fff;
+  background: #3660C9;
   .line {
     display: inline-block;
     width: 2px;
@@ -103,7 +104,7 @@ export default {
 .header-bottom {
   height: 55px;
   padding: 0 50px 0 40px;
-  background: #3f85ed;
+  background: #FFF;
   box-sizing: border-box;
   vertical-align: top;
 
@@ -121,8 +122,23 @@ export default {
   align-items: center;
   height: 100%;
   width: 280px;
+  .search-btn {
+    width: 38px;
+    height: 31px;
+    color: #FFF;
+    font-size: 20px;
+    padding-top: 2px;
+    padding-left: 4.5px;
+    background: #667F97;
+    border: 1px solid #667F97;
+    border-radius: 2px;
+    margin-left: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
   ::v-deep .el-input__inner {
-    border-radius: 36px;
+    border: 1px solid #667F97;
+    border-radius: 2px;
   }
 }
 

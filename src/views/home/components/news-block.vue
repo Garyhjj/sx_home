@@ -8,13 +8,14 @@
               {{ item.name }}
               <div class="line"></div>
             </div>
-            <div class="more">更多</div>
+            <div class="more" @click="goToMore(item)">更多</div>
           </div>
           <div class="list">
             <div
               v-for="(article, idx) in item.list"
               :key="idx"
               class="list-item"
+              @click="goToDetail(item, article)"
             >
               <div class="title">{{ article.title }}</div>
               <div class="time">{{ article.time }}</div>
@@ -27,9 +28,17 @@
 </template>
 
 <script>
+import { policyList } from "@/views/policy/mock";
+
 const newsTypes = ["政策法规", "通知公告", "企业动态", "标准规范"];
 const mockNews = () => {
   return newsTypes.map((name) => {
+    if (name === "政策法规") {
+      return {
+        name,
+        list: policyList.slice(0, 5)
+      };
+    }
     let max = 5;
     const list = [];
     const n = {
@@ -50,6 +59,20 @@ export default {
     return {
       news: mockNews()
     };
+  },
+  methods: {
+    goToMore(item) {
+      if (item.name === "政策法规") {
+        const routeUrl = this.$router.resolve({ name: "policy" });
+        window.open(routeUrl.href, "_blank");
+      }
+    },
+    goToDetail(item, article) {
+      if (item.name === "政策法规") {
+        const routeUrl = this.$router.resolve({ name: "policyDetail", query: { id: article.id }});
+        window.open(routeUrl.href, "_blank");
+      }
+    }
   }
 };
 </script>

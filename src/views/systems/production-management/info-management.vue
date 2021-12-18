@@ -164,7 +164,13 @@ export default {
   },
   mounted() {
     const fn = () => {
-      const visibleIdx = this.functionList.findIndex((f, i) => this.isEleVisible(this.$refs["block" + (i + 1)])) || 0;
+      let visibleIdx = this.functionList.findIndex((f, i) => this.isEleTopVisible(this.$refs["block" + (i + 1)]));
+      if (visibleIdx < 0) {
+        visibleIdx = this.functionList.findIndex((f, i) => this.isEleBottomVisible(this.$refs["block" + (i + 1)]));
+      }
+      if (visibleIdx < 0) {
+        visibleIdx = 0;
+      }
       this.activeName = this.functionList[visibleIdx].name;
     };
     window.addEventListener("scroll", fn);
@@ -181,11 +187,19 @@ export default {
         inline: "nearest"
       });
     },
-    isEleVisible(ele) {
-      const { top, bottom } = ele.getBoundingClientRect();
+    isEleTopVisible(ele) {
+      const { top } = ele.getBoundingClientRect();
       const h = window.innerHeight;
-      const footer = 73;
-      if (bottom < 0 || top > (h - footer)) {
+      if (top < 95 || top > h) {
+        // y 轴方向
+        return false;
+      }
+      return true;
+    },
+    isEleBottomVisible(ele) {
+      const { bottom } = ele.getBoundingClientRect();
+      const h = window.innerHeight;
+      if (bottom < 95 || bottom > h) {
         // y 轴方向
         return false;
       }

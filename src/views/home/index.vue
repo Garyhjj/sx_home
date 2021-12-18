@@ -1,26 +1,28 @@
 <template>
   <div class="home-container">
     <div class="banner-box">
-      <el-carousel height="calc(100vh - 310px)" class="banner" :interval="6000" arrow="never">
+      <el-carousel
+        height="calc(100vh - 310px)"
+        class="banner"
+        :interval="6000"
+        arrow="never"
+      >
         <el-carousel-item>
           <app-banner-layout :img="banner1">
-            <div class="page-title">
-              <div class="line">践行能源革命转型路径</div>
-              <div class="line">打造数字煤炭山西样板</div>
-              <div class="underline"></div>
+            <div class="banner1-text-box">
+              <img src="~@/assets/images/home_banner1_text1.png" alt="" />
+              <img src="~@/assets/images/home_banner1_text2.png" alt="" />
             </div>
           </app-banner-layout>
         </el-carousel-item>
         <el-carousel-item>
           <app-banner-layout :img="banner2">
-            <div class="page-title">
-              <div class="line">立足山西，覆盖全国</div>
-              <div class="line">打造煤炭领域一站式综合服务平台</div>
-              <div class="underline"></div>
+            <div class="banner2-text-box">
+              <img src="~@/assets/images/home_banner2_text.png" alt="" />
             </div>
           </app-banner-layout>
         </el-carousel-item>
-        <el-carousel-item>
+        <!-- <el-carousel-item>
           <app-banner-layout :img="banner3">
             <div class="page-title">
               <div class="line">数据共享、互联互通，精准服务</div>
@@ -28,7 +30,7 @@
               <div class="underline"></div>
             </div>
           </app-banner-layout>
-        </el-carousel-item>
+        </el-carousel-item> -->
       </el-carousel>
     </div>
     <introduction-block />
@@ -50,8 +52,8 @@ import statisticsBlock from "./components/statistics-block.vue";
 import buildBlock from "./components/build-block";
 import mapBlock from "./components/map-block";
 
-const banner1 = require("@/assets/images/home_banner_bg1.png");
-const banner2 = require("@/assets/images/home_banner_bg2.png");
+const banner1 = require("@/assets/images/home_banner1.png");
+const banner2 = require("@/assets/images/home_banner2.png");
 const banner3 = require("@/assets/images/home_banner_bg3.png");
 
 export default {
@@ -73,16 +75,47 @@ export default {
     };
   },
   mounted() {},
-  methods: {
-  }
+  methods: {}
 };
 </script>
 
 <style lang="scss" scoped>
 .banner-box {
   position: relative;
+  .banner1-text-box {
+    height: 45%;
+    overflow: hidden;
+    img {
+      display: block;
+      margin: 0 auto;
+      transform: translateY(100%);
+      transition: all 0.8s;
+      &:nth-child(1) {
+        height: 66.6%;
+        width: auto;
+      }
+      &:nth-child(2) {
+        height: 33.3%;
+        width: auto;
+      }
+    }
+  }
+  .banner2-text-box {
+    position: relative;
+    height: 96%;
+    text-align: center;
+    overflow: hidden;
+    img {
+      transform: translateY(100%);
+      transition: all 0.8s;
+      &:nth-child(1) {
+        height: 90%;
+        width: auto;
+      }
+    }
+  }
   .page-title {
-    color: #4882D9;
+    color: #4882d9;
     font-size: 24px;
     z-index: 99;
     overflow: hidden;
@@ -95,7 +128,7 @@ export default {
     .underline {
       width: 40px;
       height: 6px;
-      background: linear-gradient(90deg, #4882D9 0%, #5AD5F8 100%);
+      background: linear-gradient(90deg, #4882d9 0%, #5ad5f8 100%);
       border-radius: 5px;
       margin-top: 18px;
       transform: translateY(100%);
@@ -146,8 +179,14 @@ export default {
     //   transition: all 2s;
     //   transform: scale(1.05);
     // }
+    .banner1-text-box, .banner2-text-box {
+      img {
+        transform: translateY(0);
+      }
+    }
     .page-title {
-      .line, .underline {
+      .line,
+      .underline {
         transform: translateY(0);
         opacity: 1;
       }
@@ -161,22 +200,22 @@ export default {
 
 .banner {
   ::v-deep .el-carousel__container {
-    max-height: 696px;
+    max-height: 423px;
     .el-carousel__item {
-      transform: none!important;
+      transform: none !important;
     }
   }
   ::v-deep .el-carousel__indicators {
-      .el-carousel__indicator {
-        &.is-active .el-carousel__button {
-          opacity: 1;
-        }
-        .el-carousel__button {
+    .el-carousel__indicator {
+      &.is-active .el-carousel__button {
+        opacity: 1;
+      }
+      .el-carousel__button {
         height: 4px;
-        background: #4882D9;
+        background: #4882d9;
         opacity: 0.2;
-        }
       }
     }
+  }
 }
 </style>

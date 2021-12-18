@@ -4,7 +4,7 @@ const CompressionWebpackPlugin = require("compression-webpack-plugin");
 const resolve = dir => require("path").join(__dirname, dir);
 
 // 基础路径 注意发布之前要先修改这里
-const publicPath = process.env.VUE_APP_PUBLIC_PATH || "/";
+const publicPath = process.env.VUE_APP_PUBLIC_PATH || "/mh/";
 
 // 多页配置，默认未开启，如需要请参考 https://cli.vuejs.org/zh/config/#pages
 const pages = undefined;

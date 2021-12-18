@@ -81,6 +81,7 @@ export default {
   top: 95px;
   width: 100%;
   color: #000;
+  font-size: 14px;
   padding: 0 32px;
   border-top: 1px solid $primaryColor;
   box-sizing: border-box;

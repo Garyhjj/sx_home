@@ -87,6 +87,17 @@ const routes = [
       component: _import("systems/double-carbon/power-observe")
     }]
   },
+  // 安全监管板块
+  {
+    path: "/safe",
+    redirect: { name: "safeApp" },
+    component: mainLayout,
+    children: [{
+      path: "app",
+      name: "safeApp",
+      component: _import("systems/safe/app")
+    }]
+  },
   // 生产经营板块
   {
     path: "/production_management",

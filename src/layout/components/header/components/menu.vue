@@ -55,8 +55,8 @@ export default {
   display: inline-flex;
   height: 100%;
   align-items: center;
-  color: #fff;
-  font-size: 14px;
+  color: #667F97;
+  font-size: 16px;
   vertical-align: top;
   margin-left: 65px;
   .list {
@@ -75,7 +75,7 @@ export default {
         height: 3px;
         bottom: 0px;
         left: 5%;
-        background: #FFF
+        background: #3660C9;
       }
     }
   }

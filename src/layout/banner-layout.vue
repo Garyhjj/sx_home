@@ -21,7 +21,7 @@ export default {
 .top {
   position: relative;
   width: 100%;
-  img {
+  > img {
     width: 100%;
   }
   .text-box {

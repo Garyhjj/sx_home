@@ -92,6 +92,9 @@ export default {
       }
       &:hover {
         .type-box {
+          // .type-bg {
+          //   opacity: 1;
+          // }
           .type-content {
             .inner-content {
               margin-top: 25px;
@@ -135,6 +138,9 @@ export default {
         position: relative;
         width: 230px;
         background: #fff;
+        // &:hover .type-bg {
+        //   opacity: 1;
+        // }
         .type-bg {
           position: absolute;
           top: 0;
@@ -144,6 +150,7 @@ export default {
           background: url("~@/assets/images/platform_name_bg.png") no-repeat;
           background-size: 100% 100%;
           opacity: 1;
+          transition: all 0.3s;
         }
         .type-content {
           position: absolute;
@@ -245,8 +252,8 @@ export default {
           }
           .title {
             height: 18px;
-            font-size: 18px;
-            font-weight: 500;
+            font-size: 16px;
+            font-weight: 700;
             color: #303133;
             line-height: 18px;
             margin-top: 36px;

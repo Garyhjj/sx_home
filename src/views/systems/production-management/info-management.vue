@@ -11,7 +11,7 @@
             解决企业生产数据“上报不实、应统尽统”入库不全、“跑冒滴漏”企业税收漏洞等问题
           </div>
         </div>
-        <el-button type="primary" round class="btn" @click="goToSystem">立即进入</el-button>
+        <el-button type="primary" disabled round class="btn" @click="goToSystem">立即进入</el-button>
       </div>
     </app-banner-layout>
     <div class="tabs-box">

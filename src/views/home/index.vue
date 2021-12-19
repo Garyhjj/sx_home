@@ -22,15 +22,13 @@
             </div>
           </app-banner-layout>
         </el-carousel-item>
-        <!-- <el-carousel-item>
+        <el-carousel-item>
           <app-banner-layout :img="banner3">
-            <div class="page-title">
-              <div class="line">数据共享、互联互通，精准服务</div>
-              <div class="line">全覆盖、全流程、全口径、全方位</div>
-              <div class="underline"></div>
+            <div class="banner3-text-box">
+              <div><img src="~@/assets/images/home_banner3_text.png" alt="" /></div>
             </div>
           </app-banner-layout>
-        </el-carousel-item> -->
+        </el-carousel-item>
       </el-carousel>
     </div>
     <introduction-block />
@@ -54,7 +52,7 @@ import mapBlock from "./components/map-block";
 
 const banner1 = require("@/assets/images/home_banner1.png");
 const banner2 = require("@/assets/images/home_banner2.png");
-const banner3 = require("@/assets/images/home_banner_bg3.png");
+const banner3 = require("@/assets/images/home_banner3.png");
 
 export default {
   name: "Home",
@@ -110,6 +108,25 @@ export default {
       transition: all 0.8s;
       &:nth-child(1) {
         height: 90%;
+        width: auto;
+      }
+    }
+  }
+  .banner3-text-box {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 96%;
+    text-align: center;
+    overflow: hidden;
+    div {
+      height: 37%;
+      margin-bottom: 64px;
+    }
+    img {
+      transform: translateY(100%);
+      transition: all 0.8s;
+      &:nth-child(1) {
+        height: 100%;
         width: auto;
       }
     }
@@ -179,7 +196,7 @@ export default {
     //   transition: all 2s;
     //   transform: scale(1.05);
     // }
-    .banner1-text-box, .banner2-text-box {
+    .banner1-text-box, .banner2-text-box, .banner3-text-box {
       img {
         transform: translateY(0);
       }

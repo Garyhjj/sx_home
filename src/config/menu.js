@@ -1,7 +1,8 @@
 
 export const produceMenus = [
   { name: "生产经营", routeName: "productionManagement", children: [
-    { name: "产供储销监测与管理系统", routeName: "infoManagement", description: "对企业产、供、储、销、运及关联数据进行全面汇聚，形成基础数据资源池。" },
+    { name: "产供储销监测与管理系统", routeName: "productionObserve", description: "对企业产、供、储、销、运及关联数据进行全面汇聚，形成基础数据资源池。" },
+    { name: "生产经营信息采集系统", routeName: "infoManagement", description: "利用采集数据的实时性和准确性，得到真实准确的产、销、存数据" },
     { name: "税务服务管理系统", description: "管理企业税收相关数据，为税务机关税收稽核提供依据。" },
     { name: "煤炭流向监测系统", description: "动态监测企业数据，形成生产-》销售-》运输的煤炭流向数据。" },
     { name: "煤炭保供调度管理系统", description: "对用煤需求、运力运量、合同履约等数据进行综合管理，统筹资源调配。" },
@@ -55,11 +56,35 @@ const helpMenus = [
   ] }
 ];
 
+const policyMenus = [
+  { name: "政策法规", children: [
+    { name: "政策法规", description: "公开国家政策，落实行业法规", routeName: "policy" }
+  ] }
+];
+
+const companyServiceMenus = [
+  { name: "企业服务", children: [
+    { name: "企业服务", description: "以统一标准助力煤炭企业数字化转型", routeName: "companyService" }
+  ] }
+];
+
+const productionPowerMenus = [
+  { name: "产业赋能", children: [
+    { name: "产业赋能", description: "加快产业数字化、智能化建设", routeName: "productionPower" }
+  ] }
+];
+
+const devServiceMenus = [
+  { name: "开发者服务", children: [
+    { name: "开发者服务", description: "汇集各方精英，共建煤炭信息数字化时代", routeName: "devService" }
+  ] }
+];
+
 export const menuList = [
-  { name: "政策法规", routeName: "policy" },
+  { name: "政策法规", children: policyMenus },
   { name: "政府监管", children: produceMenus.slice(0, 3), dropdownHeight: 320 },
-  { name: "企业服务", routeName: "companyService" },
-  { name: "产业赋能", routeName: "productionPower" },
-  { name: "开发者服务", routeName: "devService" },
+  { name: "企业服务", children: companyServiceMenus },
+  { name: "产业赋能", children: productionPowerMenus },
+  { name: "开发者服务", children: devServiceMenus },
   { name: "帮助与支持", children: helpMenus }
 ];

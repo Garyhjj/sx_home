@@ -59,7 +59,7 @@
 
 <script>
 const bg = require("@/assets/images/policy_banner.png");
-import { policyList } from "../mock";
+import { infoList, companyList, standardList } from "../mock";
 
 export default {
   data() {
@@ -75,8 +75,15 @@ export default {
     this.type = query.type || "政策法规";
     let list;
     switch (this.type) {
-      case "政策法规":
-        list = policyList;
+      case "通知公告":
+        list = infoList;
+        break;
+      case "企业动态":
+        list = companyList;
+        break;
+      case "标准规范":
+        list = standardList;
+        break;
     }
     this.article = list.find(p => p.id === id);
   },
@@ -131,7 +138,8 @@ export default {
   color: #303133;
   font-size: 24px;
   text-align: center;
-  margin: 24px 0;
+  width: 80%;
+  margin: 24px auto;
 }
 
 .content-box .tip {

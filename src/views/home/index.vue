@@ -2,19 +2,11 @@
   <div class="home-container">
     <div class="banner-box">
       <el-carousel
-        height="calc(100vh - 310px)"
+        height="calc(100vh - 240px)"
         class="banner"
         :interval="6000"
         arrow="never"
       >
-        <el-carousel-item>
-          <app-banner-layout :img="banner1">
-            <div class="banner1-text-box">
-              <img src="~@/assets/images/home_banner1_text1.png" alt="" />
-              <img src="~@/assets/images/home_banner1_text2.png" alt="" />
-            </div>
-          </app-banner-layout>
-        </el-carousel-item>
         <el-carousel-item>
           <app-banner-layout :img="banner2">
             <div class="banner2-text-box">
@@ -25,7 +17,18 @@
         <el-carousel-item>
           <app-banner-layout :img="banner3">
             <div class="banner3-text-box">
-              <div><img src="~@/assets/images/home_banner3_text.png" alt="" /></div>
+              <div>
+                <img src="~@/assets/images/home_banner3_text.png" alt="" />
+              </div>
+            </div>
+          </app-banner-layout>
+        </el-carousel-item>
+        <el-carousel-item>
+          <app-banner-layout :img="banner1">
+            <div class="banner1-text-box banner3-text-box">
+              <div>
+                <img src="~@/assets/images/home_banner1_text.png" alt="" />
+              </div>
             </div>
           </app-banner-layout>
         </el-carousel-item>
@@ -63,40 +66,25 @@ export default {
     sloganBlock,
     statisticsBlock,
     buildBlock,
-    mapBlock
+    mapBlock,
   },
   data() {
     return {
       banner1,
       banner2,
-      banner3
+      banner3,
     };
   },
   mounted() {},
-  methods: {}
+  methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
 .banner-box {
   position: relative;
-  .banner1-text-box {
-    height: 45%;
-    overflow: hidden;
-    img {
-      display: block;
-      margin: 0 auto;
-      transform: translateY(100%);
-      transition: all 0.8s;
-      &:nth-child(1) {
-        height: 66.6%;
-        width: auto;
-      }
-      &:nth-child(2) {
-        height: 33.3%;
-        width: auto;
-      }
-    }
+  ::v-deep .page-content-box {
+    max-width: none;
   }
   .banner2-text-box {
     position: relative;
@@ -114,13 +102,14 @@ export default {
   }
   .banner3-text-box {
     display: flex;
+    justify-content: center;
     flex-direction: column-reverse;
     height: 96%;
     text-align: center;
     overflow: hidden;
     div {
       height: 37%;
-      margin-bottom: 64px;
+      max-height: 209px;
     }
     img {
       transform: translateY(100%);
@@ -129,6 +118,12 @@ export default {
         height: 100%;
         width: auto;
       }
+    }
+  }
+  .banner1-text-box {
+    div {
+      height: 40%;
+      max-height: 280px;
     }
   }
   .page-title {
@@ -155,7 +150,7 @@ export default {
   }
 }
 .top ::v-deep .page-content-box {
-  max-height: calc(100vh - 310px);
+  max-height: calc(100vh - 240px);
 }
 @media (min-width: 1900px) {
   .banner-box .page-title {
@@ -196,7 +191,9 @@ export default {
     //   transition: all 2s;
     //   transform: scale(1.05);
     // }
-    .banner1-text-box, .banner2-text-box, .banner3-text-box {
+    .banner1-text-box,
+    .banner2-text-box,
+    .banner3-text-box {
       img {
         transform: translateY(0);
       }
@@ -217,7 +214,7 @@ export default {
 
 .banner {
   ::v-deep .el-carousel__container {
-    max-height: 423px;
+    max-height: 690px;
     .el-carousel__item {
       transform: none !important;
     }

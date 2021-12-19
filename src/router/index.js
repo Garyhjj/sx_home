@@ -73,6 +73,18 @@ const routes = [
         path: "/company_service",
         name: "companyService",
         component: _import("systems/company-service")
+      },
+      // 文章
+      {
+        path: "article",
+        name: "article",
+        component: _import("article")
+      },
+      // 文章
+      {
+        path: "article/detail",
+        name: "articleDetail",
+        component: _import("article/detail")
       }
     ]
   },
@@ -112,6 +124,11 @@ const routes = [
       path: "info_management",
       name: "infoManagement",
       component: _import("systems/production-management/info-management")
+    },
+    {
+      path: "observe",
+      name: "productionObserve",
+      component: _import("systems/production-management/observe")
     }]
   },
   {

@@ -5,8 +5,9 @@
         <div v-for="item in news" :key="item.name" class="news-item">
           <div class="top">
             <div class="title">
-              {{ item.name }}
-              <div class="line"></div>
+              <!-- {{ item.name }}
+              <div class="line"></div> -->
+              <img :src="item.img" alt="">
             </div>
             <div class="more" @click="goToMore(item)">更多</div>
           </div>
@@ -30,13 +31,37 @@
 <script>
 import { policyList } from "@/views/policy/mock";
 
+import { infoList, companyList, standardList } from "@/views/article/mock";
+
 const newsTypes = ["政策法规", "通知公告", "企业动态", "标准规范"];
 const mockNews = () => {
   return newsTypes.map((name) => {
     if (name === "政策法规") {
       return {
         name,
+        img: require("@/assets/images/政策法规.png"),
         list: policyList.slice(0, 5)
+      };
+    }
+    if (name === "通知公告") {
+      return {
+        name,
+        img: require("@/assets/images/通知公告.png"),
+        list: infoList.slice(0, 5)
+      };
+    }
+    if (name === "企业动态") {
+      return {
+        name,
+        img: require("@/assets/images/企业动态.png"),
+        list: companyList.slice(0, 5)
+      };
+    }
+    if (name === "标准规范") {
+      return {
+        name,
+        img: require("@/assets/images/标准规范.png"),
+        list: standardList.slice(0, 5)
       };
     }
     let max = 5;
@@ -65,11 +90,17 @@ export default {
       if (item.name === "政策法规") {
         const routeUrl = this.$router.resolve({ name: "policy" });
         window.open(routeUrl.href, "_blank");
+      } else {
+        const routeUrl = this.$router.resolve({ name: "article", query: { type: item.name }});
+        window.open(routeUrl.href, "_blank");
       }
     },
     goToDetail(item, article) {
       if (item.name === "政策法规") {
         const routeUrl = this.$router.resolve({ name: "policyDetail", query: { id: article.id }});
+        window.open(routeUrl.href, "_blank");
+      } else {
+        const routeUrl = this.$router.resolve({ name: "articleDetail", query: { type: item.name, id: article.id }});
         window.open(routeUrl.href, "_blank");
       }
     }

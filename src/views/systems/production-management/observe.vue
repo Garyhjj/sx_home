@@ -2,17 +2,16 @@
   <div class="platform-container">
     <app-banner-layout :img="bannerImg">
       <div class="message-box">
-        <div class="title">生产经营信息采集系统</div>
+        <div class="title">产供储销监测与管理系统</div>
         <div class="text">
           <div class="line">
-            利用采集数据的实时性和准确性，得到真实准确的产、销、存数据
+            以先进、可靠的实时采集设备，紧密监测涉煤企业的生产经营数据
           </div>
           <div class="line">
-            根据煤矿的储量和生产能力，结合保供需求，为煤炭保供提供数据支撑
+            形成全省煤炭行业产、运、储、销全产业链数据资源池，为多维度分析提供数据基础
           </div>
         </div>
-        <el-button type="primary" round class="btn" @click="goToSystem">立即进入</el-button
-        >
+        <el-button type="primary" disabled round class="btn" @click="goToSystem">立即进入</el-button>
       </div>
     </app-banner-layout>
     <div class="tabs-box">
@@ -44,7 +43,7 @@
               />
             </div>
             <div class="text last">
-              生产经营数据填报采集系统分为产销存统计分析、煤种煤价预测分析、煤炭保供分析决策和煤炭流向分析四部分。系统通过比对上报数据与采集数据，利用大数据分析技术，对多数据源进行差异化比对，利用采集数据的实时性和准确性，得到真实准确的产、销、存数据。系统通过采集煤矿的销量、库存、煤种、煤价等数据，分区分类进行统计。根据煤炭运输路线，分析全省煤炭流向，分析出各地区煤炭流向。根据煤矿的储量和生产能力，结合保供需求，为煤炭保供提供数据支撑。
+              产供储销监测与管理系统分为企业基本信息管理、煤炭产量监测、煤炭储备管理、煤炭销售监测和煤炭物流监测五部分。系统通过采集涉煤企业的计量、物料识别、车辆、购销数据、运销等数据分区分类进行统计。利用采集数据的实时性和准确性，得到真实准确的产、运、储、销数据。根据煤炭运输车辆轨迹，分析山西省销往全国各地煤炭流向。形成全省煤炭行业数据资源池。
             </div>
           </div>
         </div>
@@ -52,7 +51,7 @@
           <div class="title">平台特点</div>
           <div class="inner-content">
             <div class="text">
-              系统采集煤矿的内采数据，如产量监控数据、井下电力数据、磅房销售数据、视频数据；采集煤矿的外采数据，如煤矿用电数据、车辆GPS数据。通过内采数据和外采数据相结合，保证数据源的真实可靠，利用大数据分析技术和视频AI分析技术，采用神经网络算法和梯度提升树算法，对煤矿多元数据进行分析比对，再结合上报数据，计算煤矿各数据源间的差异，分析煤矿上报数据的真实性。
+              系统实时采集涉煤企业的生产经营数据，如计量数据、用电电力数据、计量数据、视频数据、购销数据、运销数据；通过向上接入国家级平台的煤炭数据和车辆GPS轨迹数据。通过生产经营数据和接入国家平台的数据相结合，保证数据源的真实可靠，利用大数据分析技术和视频AI分析技术，对涉煤企业多元数据进行分析比对，计算各数据源间的差异，最后形成全省煤炭行业大数据资源池，为多维度数据分析提供支撑。
             </div>
             <div class="img-box last">
               <img
@@ -84,13 +83,14 @@
           <div class="content">
             <img src="~@/assets/images/production_management_img3.png" alt="" />
             <div class="text-outter-box">
-              <div class="line">系统应用无人机和激光雷达技术监测露天煤矿销量数据，</div>
-              <div class="line">采集井工煤矿企业的产量、电力、磅房、视频、车辆GPS等数据。</div>
               <div class="line">
-                通过产量监控数据分析煤矿企业原毛煤折算系数、洗选折算系数；
+                纵向接入国家级平台煤炭行业数据，
               </div>
               <div class="line">
-                利用车辆GPS轨迹信息分析全省煤炭流向；经多元数据比对分析全省产销存数据。
+                横向接入省级政务平台统计数据，整合既有省级煤炭信息化平台数据，
+              </div>
+              <div class="line">
+                向下采集煤炭企业基础数据，形成全省煤炭行业产、运、储、销全产业链数据池。
               </div>
             </div>
           </div>
@@ -116,41 +116,35 @@ export default {
       activeName: "平台介绍",
       menus: [
         {
-          name: "产销存数据汇总",
+          name: "企业基本信息管理",
           children: [
-            { name: "全省产销存汇总" },
-            { name: "地市集团汇总" },
-            { name: "企业上报情况" }
+            { name: "涉煤企业基本信息" },
+            { name: "运输企业基本信息" },
+            { name: "企业信用评估" }
           ]
         },
         {
-          name: "煤矿企业基本信息",
+          name: "煤炭产量监测",
+          children: [{ name: "井工矿井监测" }, { name: "露天矿井监测" }]
+        },
+        {
+          name: "煤炭储备管理",
+          children: [{ name: "库存信息预警" }, { name: "储备点检" }]
+        },
+        {
+          name: "煤炭销售监测",
           children: [
-            { name: "井工矿井" },
-            { name: "露天煤矿" },
-            { name: "生产建设" },
-            { name: "用户信息" },
-            { name: "煤矿煤层煤种" },
-            { name: "销量煤种" }
+            { name: "企业购销合同数据采集" },
+            { name: "现场装运信息采集分析" },
+            { name: "轨道衡计量信息采集" },
+            { name: "统计分析" }
           ]
         },
         {
-          name: "产量监测",
+          name: "煤炭物流监测",
           children: [
-            { name: "产量监测" },
-            { name: "电力监测" },
-            { name: "磅单监测" },
-            { name: "设备状态监测" },
-            { name: "车辆GPS轨迹分析" }
-          ]
-        },
-        {
-          name: "数据分析",
-          children: [
-            { name: "数据报表" },
-            { name: "零产和未上报原因" },
-            { name: "多元数据平衡分析" },
-            { name: "煤矿瞒报分析" }
+            { name: "信息对接采集分析" },
+            { name: "物流企业信用信息评价体系" }
           ]
         }
       ]
@@ -158,13 +152,9 @@ export default {
   },
   mounted() {
     const fn = () => {
-      let visibleIdx = this.functionList.findIndex((f, i) =>
-        this.isEleTopVisible(this.$refs["block" + (i + 1)])
-      );
+      let visibleIdx = this.functionList.findIndex((f, i) => this.isEleTopVisible(this.$refs["block" + (i + 1)]));
       if (visibleIdx < 0) {
-        visibleIdx = this.functionList.findIndex((f, i) =>
-          this.isEleBottomVisible(this.$refs["block" + (i + 1)])
-        );
+        visibleIdx = this.functionList.findIndex((f, i) => this.isEleBottomVisible(this.$refs["block" + (i + 1)]));
       }
       if (visibleIdx < 0) {
         visibleIdx = 0;
@@ -204,10 +194,7 @@ export default {
       return true;
     },
     goToSystem() {
-      window.open(
-        "http://111.53.212.59:28180/#/wait?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2ZXIiOiJ2MS4wIiwiY29kZSI6IjE0IiwiY29tZW5hbWUiOiJsY2p0MiIsImlzcyI6ImNvYWwgc2FsZUBzeHlnc2oiLCJ1c2VydHlwZSI6IjQiLCJ1c2Vycm9sZSI6IjMiLCJ0eXBlIjoidG9rZW4iLCJhdWQiOiJodHRwczovL2FuYWx5c2lzLnN4eWdzai5jb20vY2FvbHNhbGUvYXBpIiwicGFzc3dvcmQiOiI2ODZiNGRjYWJhNTkyMWEwMTRkZDQwYzExOTI3MDRjMSIsIm5iZiI6MTYzOTcyMjk1OCwidXNlcmxldmVsIjoiMSIsInRlbCI6IjExMTExMTExMTEiLCJpZCI6ImEwNWE1MTMwZWQ5ZDQzNWY5YTkzNWJkZTNkOWMyMjIyIiwidXNlcm5hbWUiOiLmtarmva7pm4blm6IiLCJhbGFybWxldmVsIjoiMCJ9.WAOyKq-_kCDpuJ0yNdkt2TpqzodOTqIP0RJoWr_1SFQ",
-        "_blank"
-      );
+      window.open("http://111.53.212.59:28180/#/wait?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2ZXIiOiJ2MS4wIiwiY29kZSI6IjE0IiwiY29tZW5hbWUiOiJsY2p0MiIsImlzcyI6ImNvYWwgc2FsZUBzeHlnc2oiLCJ1c2VydHlwZSI6IjQiLCJ1c2Vycm9sZSI6IjMiLCJ0eXBlIjoidG9rZW4iLCJhdWQiOiJodHRwczovL2FuYWx5c2lzLnN4eWdzai5jb20vY2FvbHNhbGUvYXBpIiwicGFzc3dvcmQiOiI2ODZiNGRjYWJhNTkyMWEwMTRkZDQwYzExOTI3MDRjMSIsIm5iZiI6MTYzOTcyMjk1OCwidXNlcmxldmVsIjoiMSIsInRlbCI6IjExMTExMTExMTEiLCJpZCI6ImEwNWE1MTMwZWQ5ZDQzNWY5YTkzNWJkZTNkOWMyMjIyIiwidXNlcm5hbWUiOiLmtarmva7pm4blm6IiLCJhbGFybWxldmVsIjoiMCJ9.WAOyKq-_kCDpuJ0yNdkt2TpqzodOTqIP0RJoWr_1SFQ", "_blank");
     }
   }
 };

@@ -21,7 +21,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    const updateLocation = () => {
+      const appWidth = document.querySelector("#app").clientWidth;
+      const windowWidth = window.innerWidth;
+      if (windowWidth > appWidth) {
+        this.$el.style.right = (window.innerWidth - appWidth) / 2 + 32 + "px";
+      }
+    };
+    updateLocation();
+    window.addEventListener("resize", updateLocation);
+  }
+};
 </script>
 
 <style lang="scss" scoped>

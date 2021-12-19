@@ -9,9 +9,11 @@
       <div class="right-content">
         <span class="link doc" @click="goToDoc">文档中心</span>
         <span class="link" @click="goToDataScreen">运营中心</span>
-        <span class="link login"  @click="goToLogin">登录</span>
+        <img src="~@/assets/images/user_default.png" alt="">
+        <span>管理员</span>
+        <!-- <span class="link login"  @click="goToLogin">登录</span>
         <span class="line"></span>
-        <span class="link">注册</span>
+        <span class="link">注册</span> -->
       </div>
     </div>
     <div class="header-bottom">
@@ -98,6 +100,12 @@ export default {
     }
     .login {
       margin-left: 76px;
+    }
+    img {
+      height: 18px;
+      margin-left: 76px;
+      margin-right: 8px;
+      vertical-align: middle;
     }
   }
 }
